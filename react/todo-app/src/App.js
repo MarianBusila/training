@@ -23,6 +23,19 @@ class App extends Component {
             </div>
           </div>
         </form>
+
+        <ul className="list-group">
+          {
+            this.state.todoList.map(
+              (item, index) => {
+                return <li className="list-group-item" key={index}>
+                  {item}
+                  <button className="btn btn-sm btn-outline-danger float-right" onClick={(event) => { this.deleteTodoTask(event, index)}}>Delete</button>
+                </li>
+              }
+            )
+          }
+        </ul>
       </div>
     );
   }
@@ -36,6 +49,12 @@ class App extends Component {
       event.target.reset();
     }
     event.preventDefault()
+  }
+
+  deleteTodoTask = (event, index) => {
+    var taskArray = [...this.state.todoList];
+    taskArray.splice(index, 1);
+    this.setState({todoList: taskArray});
   }
 }
 
