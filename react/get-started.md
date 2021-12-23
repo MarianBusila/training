@@ -218,3 +218,140 @@ ReactDOM.render(
     fetchData()
     fetchDataAsync()
     ```
+
+### Development env
+- download latest node js
+- ```npx create-react-app cra-test``` to create a react app. It install react, react-dom and react-scripts.
+- ```npm start``` to start the app
+- create-react-app wires all the tools needed, like *babel* (convert code to jsva script), webpack (bundle packages), etc
+- for a manaul installation, see: https://jscomplete.com/reactful
+- you can do server side or client side rendering of react components. With SSR, even when java script is disabled in the browser, you can still run react served by a web server
+
+### GitHub Cards App
+- you can style an app with CSS or using style attribute. Example:
+```js
+class ConditionalStyle extends React.Component {
+  render() {
+    return (
+      <div style={{color: Math.random() < 0.5 ? 'green': 'red'}}>
+        How do you like this?
+      </div>
+
+    )
+  }
+}
+
+ReactDOM.render(
+  <ConditionalStyle />,
+  mountNode
+);
+
+```
+- the GitHub Card App
+```js
+const CardList = (props) => (
+      <div>
+        {props.profiles.map(profile => <Card key={profile.id} {...profile} />)}
+      </div>  
+)
+
+class Card extends React.Component {
+  render() {
+    const profile = this.props;
+    return (
+      <div className="github-profile">
+        <img src={profile.avatar_url} />
+        <div className="info">
+          <div className="name">{profile.name}</div>
+          <div className="company">{profile.company}</div>
+        </div>
+      </div>
+    );
+  }
+}
+
+class Form extends React.Component {
+  state = {userName: ''}
+  handleSubmit = async (event) => {
+    event.preventDefault(); // prevent default form submission and let React handle it
+    const resp = await axios.get(`https://api.github.com/users/${this.state.userName}`)
+    this.props.onSubmit(resp.data);
+    this.setState( {userName: ''}) // reset the textbox
+  };
+  render() {
+    return (
+        <form onSubmit={this.handleSubmit}>
+          <input 
+            type="text" 
+            value = {this.state.userName}
+            onChange={event => this.setState({userName: event.target.value})} // react is aware of the changes in the text box as the user is typing and it could provide feedback like number of chars typed, etc
+            placeholder="GitHub username" 
+            required />
+          <button>Add card</button>
+        </form>
+    )
+  }
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      profiles: [],
+    };
+  }
+  
+  addNewProfile = (profileData) => {
+    this.setState(prevState => ({
+      profiles: [...prevState.profiles, profileData]
+    })
+    );
+  }
+  render() {
+    return (
+      <div>
+        <div className="header">{this.props.title}</div>
+        <Form onSubmit = {this.addNewProfile} />
+        <CardList profiles={this.state.profiles} />
+      </div>
+      )
+  }
+}
+
+ReactDOM.render(
+  <App title="The Github Cards App" />,
+  mountNode
+);
+```
+
+```css
+.github-profile {
+	margin: 1rem;
+  img {
+    width: 75px;
+  }
+  .info {
+    display: inline-block;
+    margin-left: 12px;
+		.name {
+    	font-size: 1.25rem;
+      font-weight: bold;
+    }
+  }
+}
+
+form {
+	border: thin solid #ddd;
+  background-color: #fbfbfb;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+	text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+```
