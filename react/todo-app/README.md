@@ -1,3 +1,13 @@
+
+# Overview
+Simple todo list app to add tasks to a list and delete them using Bootstrap UI.
+
+To build and run the docker image locally:
+```cmd
+docker build -t todo-react-app
+docker run -it -p 8080:80 todo-react-app
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
