@@ -2,11 +2,24 @@ import React, { Component } from 'react'
 
 class TransactionForm extends Component {
     state = {
-        beneficiaryAccountNo: '',
-        swiftCode: '',
-        beneficiaryName: '',
-        amount: ''
+        ...this.returnStateObject()
+    }
 
+    returnStateObject() {
+        if(this.props.currentIndex === -1)
+            return {
+                beneficiaryAccountNo: '',
+                swiftCode: '',
+                beneficiaryName: '',
+                amount: ''
+            }
+        else
+            return this.props.list[this.props.currentIndex]
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps.currentIndex !== this.props.currentIndex || prevProps.list.length !== this.props.list.length)
+            this.setState({...this.returnStateObject()})
     }
 
     handleInputChange = e => {

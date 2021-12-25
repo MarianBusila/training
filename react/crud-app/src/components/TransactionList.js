@@ -3,6 +3,7 @@ import TransactionForm from './TransactionForm'
 
 class TransactionList extends Component {
     state = {
+        currentIndex: -1,
         list: this.returnList()
     }
 
@@ -14,15 +15,26 @@ class TransactionList extends Component {
 
     onAddOrEdit = (data) => {
         var list = this.returnList();
-        list.push(data);
+        if(this.state.currentIndex === -1)
+            list.push(data);
+        else
+            list[this.state.currentIndex] = data
         localStorage.setItem("transactions", JSON.stringify(list));
-        this.setState({list: list})
+        this.setState({list: list, currentIndex: -1}) // we set the currentIndex to -1 to reset the form
+    }
+
+    handleEdit = index => {
+        this.setState({currentIndex: index})
     }
 
     render() {
         return (
             <div>
-                <TransactionForm onAddOrEdit={this.onAddOrEdit} />
+                <TransactionForm 
+                    onAddOrEdit={this.onAddOrEdit} 
+                    currentIndex={this.state.currentIndex}
+                    list = {this.state.list}
+                />
                 <hr />
                 <table>
                     <tbody>
@@ -33,6 +45,7 @@ class TransactionList extends Component {
                                     <td>{item.swiftCode}</td>
                                     <td>{item.beneficiaryName}</td>
                                     <td>{item.amount}</td>
+                                    <td><button onClick={() => this.handleEdit(index)}>Edit</button></td>
                                 </tr>
                             })
                         }
