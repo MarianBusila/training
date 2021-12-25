@@ -1,3 +1,6 @@
+# Overview
+CRUD operations for a list of transactions using local storage with and without Redux, based on this tutorial: [React CRUD with and without REDUX](https://www.youtube.com/watch?v=eDomZxzi19Y&t=2929s)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
