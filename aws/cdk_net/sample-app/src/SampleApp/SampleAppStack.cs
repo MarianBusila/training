@@ -1,7 +1,6 @@
 using Amazon.CDK;
-using Amazon.CDK.AWS.SNS;
-using Amazon.CDK.AWS.SNS.Subscriptions;
-using Amazon.CDK.AWS.SQS;
+using Amazon.CDK.AWS.Lambda;
+using Amazon.CDK.AWS.APIGateway;
 using Constructs;
 
 namespace SampleApp
@@ -10,7 +9,19 @@ namespace SampleApp
     {
         internal SampleAppStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props)
         {
+            // lambda function
+            var hello = new Function(this, "HelloHandler", new FunctionProps
+            {
+                Runtime = Runtime.NODEJS_14_X,
+                Code = Code.FromAsset("lambda"),
+                Handler = "hello.handler"
+            });
 
+            // api gateway
+            new LambdaRestApi(this, "Endpoint", new LambdaRestApiProps
+            {
+                Handler = hello
+            });
         }
     }
 }
