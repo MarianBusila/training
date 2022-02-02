@@ -17,10 +17,15 @@ namespace SampleApp
                 Handler = "hello.handler"
             });
 
+            var helloWithCounter = new HitCounter(this, "HelloHitCounter", new HitCounterProps
+            {
+                Downstream = hello
+            });
+
             // api gateway
             new LambdaRestApi(this, "Endpoint", new LambdaRestApiProps
             {
-                Handler = hello
+                Handler = helloWithCounter.Handler
             });
         }
     }
