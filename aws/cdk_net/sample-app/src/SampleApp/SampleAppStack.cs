@@ -1,6 +1,7 @@
 using Amazon.CDK;
 using Amazon.CDK.AWS.Lambda;
 using Amazon.CDK.AWS.APIGateway;
+using Cdklabs.DynamoTableViewer;
 using Constructs;
 
 namespace SampleApp
@@ -26,6 +27,14 @@ namespace SampleApp
             new LambdaRestApi(this, "Endpoint", new LambdaRestApiProps
             {
                 Handler = helloWithCounter.Handler
+            });
+
+            // Defines a new TableViewer resource
+            new TableViewer(this, "ViewerHitCount", new TableViewerProps
+            {
+                Title = "Hello Hits",
+                Table = helloWithCounter.MyTable,
+                SortBy = "hits"
             });
         }
     }

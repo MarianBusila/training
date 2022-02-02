@@ -14,10 +14,11 @@ namespace SampleApp
     public class HitCounter: Construct
     {
         public Function Handler { get; }
+        public readonly Table MyTable;
 
         public HitCounter(Construct scope, string id, HitCounterProps props) : base(scope, id)
         {
-            var table = new Table(this, "Hits", new TableProps
+            MyTable = new Table(this, "Hits", new TableProps
             {
                 PartitionKey = new Attribute
                 {
@@ -34,12 +35,12 @@ namespace SampleApp
                 Environment = new Dictionary<string, string>
                 {
                     ["DOWNSTREAM_FUNCTION_NAME"] = props.Downstream.FunctionName,
-                    ["HITS_TABLE_NAME"] = table.TableName
+                    ["HITS_TABLE_NAME"] = MyTable.TableName
                 }
             });
 
             // Grant the lambda role read/write permissions to our table
-            table.GrantReadWriteData(Handler);
+            MyTable.GrantReadWriteData(Handler);
 
             // Grant the lambda role invoke permissions to the downstream function
             props.Downstream.GrantInvoke(Handler);
