@@ -25,6 +25,9 @@ cdk bootstrap aws://810275592917/us-east-2 - bootstraps an environment (account/
 
 cdk deploy - to deploy the stack
 
+cdk deploy --app 'cdk.out/' squid-shared-dev
+cdk deploy --app 'cdk.out/' squid-shared-stag
+
 cdk diff - to compare your app with what is deloyed in AWS
 
 cdk deploy --hotswap - to deploy just assets (lambda code), and not the cloud formation template, which can be long. To be used only in Dev.
@@ -74,6 +77,19 @@ cdk destroy
       scope.node.tryGetContext(stage)[key]
   }
   ```
+
+## Naming conventions
+
+- CDK Stacks: <application>-<microservice>
+- CDK Resources: <CDK stack name>-<CDK resource id>-<random string>
+- S3 buckets: <prod/dev/qa>-<application>-<optional: component/purpose>-<optional: unique identifier/customer>
+- Secrets: service/secret path
+
+
+## Tagging
+
+- name, owner=swat, env, product=squid, application=datalake
+
 
 ## Stacks
 
