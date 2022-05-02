@@ -1,6 +1,7 @@
 using Amazon.CDK;
 using Amazon.CDK.AWS.Lambda;
 using Amazon.CDK.AWS.Lambda.Nodejs;
+using Amazon.CDK.AWS.StepFunctions;
 using Amazon.CDK.AWS.StepFunctions.Tasks;
 using Constructs;
 
@@ -61,6 +62,26 @@ namespace RandomNumberStepfunction
                 InputPath = "$",
                 OutputPath = "$"
             });
+
+            // Condition to wait 1 second
+            var wait1Sec = new Wait(this, "Wait1Second", new WaitProps{Time = WaitTime.Duration(Duration.Seconds(1))});
+
+            // choice condition for workflow
+            var numberChoice = new Choice(this, "NumberChoice")
+                .When(Condition.NumberGreaterThanJsonPath("$.generatedRandomNumber", "$.numberToCheck"), greaterThanInvocation)
+                .When(Condition.NumberLessThanEqualsJsonPath("$.generatedRandomNumber", "$.numberToCheck"), lessThanOrEqualInvocation)
+                .Otherwise(lessThanOrEqualInvocation);
+
+            // create the workflow definition
+            var definition = generateRandomNumberInvocation.Next(wait1Sec).Next(numberChoice);
+
+            // create the state machine
+            var stateMachine = new StateMachine(this, "StateMachine", new StateMachineProps{
+            Definition    = definition,
+            StateMachineName = "randomNumberStateMachine",
+            Timeout = Duration.Minutes(5)
+            });
+
         }
     }
 }
