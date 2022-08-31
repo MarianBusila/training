@@ -13,6 +13,9 @@ Cloud Design Patterns with a focus on Azure.
 7. [Queue Based Load Leveling](#queue-based-load-leveling)
 8. [Asynchronous Request Reply](#asynchronous-request-reply)
 9. [Bulkhead](#bulkhead)
+10. [Static Content Hosting](#static-content-hosting)
+11. [Claim Check](#claim-check)
+12. [Ambassador](#ambassador)
 
 ## GateKeeper
 
@@ -96,6 +99,31 @@ Cloud Design Patterns with a focus on Azure.
 ![](images/csd/BulkheadProblem2.png)
 ![](images/csd/BulkheadSolution1.png)
 ![](images/csd/BulkheadSolution2.png)
+
+## Static Content Hosting
+
+- place static content in storage (Azure Blob, AWS S3) instead of in a compute service to save on cost
+- use CDN to better serve clients from different regions than where the storage account is
+
+![](images/csd/StaticContentHostingProblem.png)
+![](images/csd/StaticContentHostingSolution.png)
+
+## Claim Check
+
+- use when the message size cannot fit the supported message limit of the chosen message bus technology. For example Azure Service Bus has a limit of 256KB - 1 MB per message depending on the tier.
+- message will be split into a claim check (samll) and a payload(big) saved into a storage
+
+![](images/csd/ClaimCheckProblem.png)
+![](images/csd/ClaimCheckSolution.png)
+
+## Ambassador
+
+- you need to build a common set of connectivity features for multiple microservices, languages, frameworks
+- avoid breaking the DRY principle
+- should allow clients to pass some context to the ambassador, like max number of retries
+
+![](images/csd/AmbassadorProblem.png)
+![](images/csd/AmbassadorSolution.png)
 
 ## References
 
