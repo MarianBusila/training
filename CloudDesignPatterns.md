@@ -16,6 +16,11 @@ Cloud Design Patterns with a focus on Azure.
 10. [Static Content Hosting](#static-content-hosting)
 11. [Claim Check](#claim-check)
 12. [Ambassador](#ambassador)
+13. [Anti Corruption Layer](#anti-corruption-layer)
+14. [Strangler Fig](#strangler-fig)
+15. [Backends For Frontends](#backends-for-frontends)
+16. [Sidecar](#sidecar)
+17. [Throttling](#throttling)
 
 ## GateKeeper
 
@@ -124,6 +129,48 @@ Cloud Design Patterns with a focus on Azure.
 
 ![](images/csd/AmbassadorProblem.png)
 ![](images/csd/AmbassadorSolution.png)
+
+## Anti Corruption Layer
+
+- allows to perform a multi stage migration from a legacy system to a new system
+
+![](images/csd/AntiCorruptionLayerProblem1.png)
+![](images/csd/AntiCorruptionLayerProblem2.png)
+![](images/csd/AntiCorruptionLayerSolution1.png)
+![](images/csd/AntiCorruptionLayerSolution2.png)
+![](images/csd/AntiCorruptionLayerSolution3.png)
+
+## Strangler Fig
+
+- gradually migrate a back-end application to a new architecture, without affecting the website
+
+![](images/csd/StranglerFigProblem.png)
+![](images/csd/StranglerFigSolution1.png)
+![](images/csd/StranglerFigSolution2.png)
+
+- can be combined with Anti Corruption Layer
+
+![](images/csd/StranglerFigSolution3.png)
+
+## Backends For Frontends
+
+- create separate backend services to be consumed by specific frontend applications
+
+![](images/csd/BackendsForFrontendsProblem.png)
+![](images/csd/BackendsForFrontendsSolution.png)
+
+## Sidecar
+
+- isolate in a different process some common functionality (log, configuration, proxy)
+- used when having different technologies in the main applications, then the sidecar can offer these features
+
+![](images/csd/SidecarProblem.png)
+![](images/csd/SidecarSolution.png)
+
+## Throttling
+
+- control the consumption of resources used by the application
+- can be implemented with Azure API Management
 
 ## References
 
