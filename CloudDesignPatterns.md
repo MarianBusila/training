@@ -21,6 +21,9 @@ Cloud Design Patterns with a focus on Azure.
 15. [Backends For Frontends](#backends-for-frontends)
 16. [Sidecar](#sidecar)
 17. [Throttling](#throttling)
+18. [Valet Key](#valet-key)
+19. [Federated Identity](#federated-identity)
+20. [Deployment Stamp](#deployment-stamp)
 
 ## GateKeeper
 
@@ -171,6 +174,39 @@ Cloud Design Patterns with a focus on Azure.
 
 - control the consumption of resources used by the application
 - can be implemented with Azure API Management
+
+## Valet Key
+
+- to minimize resource loading and maximize performance and scalability
+- to minimize operational cost
+
+![](images/csd/ValetKeyProblem.png)
+![](images/csd/ValetKeySolution.png)
+
+## Federated Identity
+
+- delegate authentication to an external identity provider
+- simplify user management
+- can use Azure Active Directory, Google, Facebook, etc
+- allows to implement SSO
+- an external identity provider can also help with RBAC for more granular control
+
+![](images/csd/FederatedIdentityProblem.png)
+![](images/csd/FederatedIdentitySolution1.png)
+![](images/csd/FederatedIdentitySolution2.png)
+
+## Deployment Stamp
+
+- solves the challange of deploying multiple independent copies of application components, including data stores
+- each individual copy is called **Stamp**
+- redirection can be done with AzureFrontDoor
+- use it when you have a natural limit on scalability (ex: SQL Server)
+- use it when there is a requirement to separate certain clients from others
+- there can be a higher cost when using many stamps
+- allows a better resilience during outages
+- do not use if data needs to be replicated across all deployed instances (Geodes pattern)
+
+![](images/csd/DeploymentStampSolution.png)
 
 ## References
 
