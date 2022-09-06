@@ -24,6 +24,9 @@ Cloud Design Patterns with a focus on Azure.
 18. [Valet Key](#valet-key)
 19. [Federated Identity](#federated-identity)
 20. [Deployment Stamp](#deployment-stamp)
+21. [Geode](#geode)
+22. [External Configuration Store](#external-configuration-store)
+23. [Choreography](#choreography)
 
 ## GateKeeper
 
@@ -207,6 +210,33 @@ Cloud Design Patterns with a focus on Azure.
 - do not use if data needs to be replicated across all deployed instances (Geodes pattern)
 
 ![](images/csd/DeploymentStampSolution.png)
+
+## Geode
+
+- deploying a collection of backend services into a set of geographical nodes, each of which can service a request for any client in any region
+- can be implemented with a CosmosDB database which will be geo replicated in multiple regions
+- use Azure Fron Door to direct users to the closest region
+
+![](images/csd/GeodeProblem.png)
+![](images/csd/GeodeSolution.png)
+
+## External Configuration Store
+
+- move the configuration information out of the application deployment package to a centrelized location
+- consider schema of the storage (key value pair or something more complex like a document based)
+
+![](images/csd/ExternalConfigurationStoreProblem.png)
+![](images/csd/ExternalConfigurationStoreSolution.png)
+
+## Choreography
+
+- have each component of the system to participate in the decision-making process about the workflow of a businesss transcation instead of replying on a central point of control.
+- if one service fails to complete a business operation, it can be difficult to recover from that failure.
+- this pattern becomes a challange if the number of services grow rapidly
+
+![](images/csd/ChoreographyProblem.png)
+![](images/csd/ChoreographySolution1.png)
+![](images/csd/ChoreographySolution2.png)
 
 ## References
 
