@@ -43,13 +43,20 @@ Cloud Design Patterns with a focus on Azure.
 - performance bottleneck
 - implement distributed tracing
 
+### Solution
+
 ![](images/csd/GatewayAggregation.png)
 
 ## Gateway Offloading
 
 - need high availability and scalable
 
+### Problem
+
 ![](images/csd/GatewayOffloadingProblem.png)
+
+### Solution
+
 ![](images/csd/GatewayOffloadingSolution.png)
 
 ## Gateway Routing
@@ -58,18 +65,24 @@ Cloud Design Patterns with a focus on Azure.
 - provide a single endpoint for the client
 - can be implemented with Azure Front Door or Application Gateway
 
+### Problem
+
 ![](images/csd/GatewayRoutingProblem.png)
+
+### Solution
+
 ![](images/csd/GatewayRoutingSolution.png)
 
 ## Priority Queue
 
 - can be implemented with Azure Service Bus Queues
+
+### Solution
+
 - some message queues provide support for priority already
   ![](images/csd/PriorityQueueSolution1.png)
-
 - this pattern can also be implemented with different queues for each priority
   ![](images/csd/PriorityQueueSolution2.png)
-
 - instead of having dedicated consumers, we can have a pool of consumers for all the 3 queues, with the condition that a consumer must consume first from the high priority queues first
   ![](images/csd/PriorityQueueSolution3.png)
 
@@ -77,13 +90,21 @@ Cloud Design Patterns with a focus on Azure.
 
 - can be implemented with Azure ServiceBus Topics, EventHubs, EventGrid
 - need to consider: ordering, poison messages, at least once delivery, message expiration and scheduling
-  ![](images/csd/PublishSubscribeProblem.png)
-  ![](images/csd/PublishSubscribeSolution.png)
+
+### Problem
+
+![](images/csd/PublishSubscribeProblem.png)
+
+### Solution
+
+![](images/csd/PublishSubscribeSolution.png)
 
 ## Queue Based Load Leveling
 
 - useful to any application that uses services that are subject to overloading
 - not to be used if application expects a response from the service with minimal latency
+
+### Solution
 
 ![](images/csd/QueueBasedLoadLevelingSolution.png)
 
@@ -94,7 +115,12 @@ Cloud Design Patterns with a focus on Azure.
 - use HTTP 202 and include Location and Retry-After headers
 - should allow for cancellation of a request
 
+### Problem
+
 ![](images/csd/AsyncRequestReplyProblem.png)
+
+### Solution
+
 ![](images/csd/AsyncRequestReplySolution1.png)
 ![](images/csd/AsyncRequestReplySolution2.png)
 
@@ -106,8 +132,13 @@ Cloud Design Patterns with a focus on Azure.
 - can be combined with other patterns like circuit breaker
 - can be implemented using containers
 
+### Problem
+
 ![](images/csd/BulkheadProblem1.png)
 ![](images/csd/BulkheadProblem2.png)
+
+### Solution
+
 ![](images/csd/BulkheadSolution1.png)
 ![](images/csd/BulkheadSolution2.png)
 
@@ -116,7 +147,12 @@ Cloud Design Patterns with a focus on Azure.
 - place static content in storage (Azure Blob, AWS S3) instead of in a compute service to save on cost
 - use CDN to better serve clients from different regions than where the storage account is
 
+### Problem
+
 ![](images/csd/StaticContentHostingProblem.png)
+
+### Solution
+
 ![](images/csd/StaticContentHostingSolution.png)
 
 ## Claim Check
@@ -124,7 +160,12 @@ Cloud Design Patterns with a focus on Azure.
 - use when the message size cannot fit the supported message limit of the chosen message bus technology. For example Azure Service Bus has a limit of 256KB - 1 MB per message depending on the tier.
 - message will be split into a claim check (samll) and a payload(big) saved into a storage
 
+### Problem
+
 ![](images/csd/ClaimCheckProblem.png)
+
+### Solution
+
 ![](images/csd/ClaimCheckSolution.png)
 
 ## Ambassador
@@ -133,15 +174,25 @@ Cloud Design Patterns with a focus on Azure.
 - avoid breaking the DRY principle
 - should allow clients to pass some context to the ambassador, like max number of retries
 
+### Problem
+
 ![](images/csd/AmbassadorProblem.png)
+
+### Solution
+
 ![](images/csd/AmbassadorSolution.png)
 
 ## Anti Corruption Layer
 
 - allows to perform a multi stage migration from a legacy system to a new system
 
+### Problem
+
 ![](images/csd/AntiCorruptionLayerProblem1.png)
 ![](images/csd/AntiCorruptionLayerProblem2.png)
+
+### Solution
+
 ![](images/csd/AntiCorruptionLayerSolution1.png)
 ![](images/csd/AntiCorruptionLayerSolution2.png)
 ![](images/csd/AntiCorruptionLayerSolution3.png)
@@ -150,7 +201,12 @@ Cloud Design Patterns with a focus on Azure.
 
 - gradually migrate a back-end application to a new architecture, without affecting the website
 
+### Problem
+
 ![](images/csd/StranglerFigProblem.png)
+
+### Solution
+
 ![](images/csd/StranglerFigSolution1.png)
 ![](images/csd/StranglerFigSolution2.png)
 
@@ -162,7 +218,12 @@ Cloud Design Patterns with a focus on Azure.
 
 - create separate backend services to be consumed by specific frontend applications
 
+### Problem
+
 ![](images/csd/BackendsForFrontendsProblem.png)
+
+### Solution
+
 ![](images/csd/BackendsForFrontendsSolution.png)
 
 ## Sidecar
@@ -170,7 +231,12 @@ Cloud Design Patterns with a focus on Azure.
 - isolate in a different process some common functionality (log, configuration, proxy)
 - used when having different technologies in the main applications, then the sidecar can offer these features
 
+### Problem
+
 ![](images/csd/SidecarProblem.png)
+
+### Solution
+
 ![](images/csd/SidecarSolution.png)
 
 ## Throttling
@@ -183,7 +249,12 @@ Cloud Design Patterns with a focus on Azure.
 - to minimize resource loading and maximize performance and scalability
 - to minimize operational cost
 
+### Problem
+
 ![](images/csd/ValetKeyProblem.png)
+
+### Solution
+
 ![](images/csd/ValetKeySolution.png)
 
 ## Federated Identity
@@ -194,7 +265,12 @@ Cloud Design Patterns with a focus on Azure.
 - allows to implement SSO
 - an external identity provider can also help with RBAC for more granular control
 
+### Problem
+
 ![](images/csd/FederatedIdentityProblem.png)
+
+### Solution
+
 ![](images/csd/FederatedIdentitySolution1.png)
 ![](images/csd/FederatedIdentitySolution2.png)
 
@@ -209,6 +285,8 @@ Cloud Design Patterns with a focus on Azure.
 - allows a better resilience during outages
 - do not use if data needs to be replicated across all deployed instances (Geodes pattern)
 
+### Solution
+
 ![](images/csd/DeploymentStampSolution.png)
 
 ## Geode
@@ -217,7 +295,12 @@ Cloud Design Patterns with a focus on Azure.
 - can be implemented with a CosmosDB database which will be geo replicated in multiple regions
 - use Azure Fron Door to direct users to the closest region
 
+### Problem
+
 ![](images/csd/GeodeProblem.png)
+
+### Solution
+
 ![](images/csd/GeodeSolution.png)
 
 ## External Configuration Store
@@ -225,7 +308,12 @@ Cloud Design Patterns with a focus on Azure.
 - move the configuration information out of the application deployment package to a centrelized location
 - consider schema of the storage (key value pair or something more complex like a document based)
 
+### Problem
+
 ![](images/csd/ExternalConfigurationStoreProblem.png)
+
+### Solution
+
 ![](images/csd/ExternalConfigurationStoreSolution.png)
 
 ## Choreography
@@ -234,7 +322,12 @@ Cloud Design Patterns with a focus on Azure.
 - if one service fails to complete a business operation, it can be difficult to recover from that failure.
 - this pattern becomes a challange if the number of services grow rapidly
 
+### Problem
+
 ![](images/csd/ChoreographyProblem.png)
+
+### Solution
+
 ![](images/csd/ChoreographySolution1.png)
 ![](images/csd/ChoreographySolution2.png)
 
