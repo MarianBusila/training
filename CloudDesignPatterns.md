@@ -27,6 +27,8 @@ Cloud Design Patterns with a focus on Azure.
 21. [Geode](#geode)
 22. [External Configuration Store](#external-configuration-store)
 23. [Choreography](#choreography)
+24. [Competing Consumers](#competing-consumers)
+25. [Cache Aside](#cache-aside)
 
 ## GateKeeper
 
@@ -330,6 +332,37 @@ Cloud Design Patterns with a focus on Azure.
 
 ![](images/csd/ChoreographySolution1.png)
 ![](images/csd/ChoreographySolution2.png)
+
+## Competing Consumers
+
+- enable multiple concurrent consumers to process messages received on the same messaging channel
+
+### Solution
+
+![](images/csd/CompetingConsumersSolution.png)
+
+## Cache Aside
+
+- load data _on demand_ into a chache from a data store, while keeping the _consistency_ between the data held in the cache and the data store.
+
+### Problem
+
+![](images/csd/CacheAsideProblem.png)
+
+### Solution
+
+![](images/csd/CacheAsideSolution.png)
+
+### Other caching systems
+
+- Read-through
+  ![](images/csd/CacheAsideAlternativeReadThrough.png)
+
+- Write-through
+  ![](images/csd/CacheAsideAlternativeWriteThrough.png)
+
+- Write-behind
+  ![](images/csd/CacheAsideAlternativeWriteBehind.png)
 
 ## References
 
