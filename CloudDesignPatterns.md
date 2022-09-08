@@ -29,6 +29,8 @@ Cloud Design Patterns with a focus on Azure.
 23. [Choreography](#choreography)
 24. [Competing Consumers](#competing-consumers)
 25. [Cache Aside](#cache-aside)
+26. [Sequential Convoy](#sequential-convoy)
+27. [Compensating Transaction](#compensating-transaction)
 
 ## GateKeeper
 
@@ -363,6 +365,36 @@ Cloud Design Patterns with a focus on Azure.
 
 - Write-behind
   ![](images/csd/CacheAsideAlternativeWriteBehind.png)
+
+## Sequential Convoy
+
+- process a set of related messages in a defined order, without blocking processing of other groups of messages
+- requires a FIFO queue with categorization of messages
+- should not be used for high throughput scenarios
+
+### Problem
+
+![](images/csd/SequentialConvoyProblem.png)
+
+### Solution
+
+![](images/csd/SequentialConvoySolution1.png)
+![](images/csd/SequentialConvoySolution2.png)
+![](images/csd/SequentialConvoySolution3.png)
+
+## Compensating Transaction
+
+- undo the work performed by a series of steps, which toghether define an eventually consistent operation, if one or more of the steps fail
+- requires having a revert / rollback logic for each step of the operation
+- the actions should be idempotent
+
+### Problem
+
+![](images/csd/CompensatingTransactionProblem.png)
+
+### Solution
+
+![](images/csd/CompensatingTransactionSolution.png)
 
 ## References
 
