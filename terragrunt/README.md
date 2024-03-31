@@ -12,3 +12,14 @@ terraform init
 terraform apply
 terraform destroy
 ```
+
+### Terraform V2
+
+Refactor V1 using vpc module.
+
+```
+cd infrastructure-live-v2/dev/vpc
+terraform init
+terraform apply
+terraform destroy
+```
