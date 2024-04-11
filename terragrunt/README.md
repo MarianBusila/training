@@ -23,3 +23,19 @@ terraform init
 terraform apply
 terraform destroy
 ```
+
+### Terraform V3
+
+Refactor V2 using terragrunt.
+
+```
+cd infrastructure-live-v3/dev/vpc
+terragrunt init
+terragrunt apply
+cd infrastructure-live-v3/staging/vpc
+terragrunt init
+terragrunt apply
+
+cd infrastructure-live-v3
+terragrunt run-all destroy
+```
