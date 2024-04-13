@@ -39,3 +39,27 @@ terragrunt apply
 cd infrastructure-live-v3
 terragrunt run-all destroy
 ```
+
+### Terraform V4
+
+Add EKS cluster
+
+#### Notes
+- when specifying a dependency use _mock_outputs_ to be able to run _terragrunt run_ on 2 or more modules at the same time
+
+```
+cd infrastructure-live-v4/dev
+terragrunt run-all init
+terragrunt run-all plan
+terragrunt run-all apply
+aws eks update-config --name dev-demo --region is-east1
+kubectl get nodes
+
+cd infrastructure-live-v4/staging
+terragrunt run-all init
+terragrunt run-all plan
+terragrunt run-all apply
+
+cd infrastructure-live-v4
+terragrunt run-all destroy
+```
