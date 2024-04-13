@@ -52,8 +52,13 @@ cd infrastructure-live-v4/dev
 terragrunt run-all init
 terragrunt run-all plan
 terragrunt run-all apply
-aws eks update-config --name dev-demo --region is-east1
+// check cluster created ok
+aws eks update-kubeconfig --name dev-demo --region us-east-1
 kubectl get nodes
+// check autscaller is installed and running correctly
+helm list -A
+kubectl get pods -n kube-system
+kubectl logs -f autoscaller-aws-cluster-autoscaller-XXX -n kube-system
 
 cd infrastructure-live-v4/staging
 terragrunt run-all init
