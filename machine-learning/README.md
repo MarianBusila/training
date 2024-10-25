@@ -6,7 +6,7 @@
 
 ### [Linear Regression](./linear_regression.md)
 
-### Logistic Regression
+### [Logistic Regression](./logistic_regression.md)
 
 ### Clasification
 
