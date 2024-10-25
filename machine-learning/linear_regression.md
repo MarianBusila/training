@@ -67,6 +67,9 @@ Training typically requires many epochs. That is, the system needs to process ev
 ![](images/linear_regression/epoch2.png)
 
 ## Train a model - code sample
+
+- Use a real dataset to train a model to predict the fare of a taxi ride in Chicago
+
 ```python
 #@title Code - Load dependencies
 

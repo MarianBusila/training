@@ -8,7 +8,7 @@
 
 ### [Logistic Regression](./logistic_regression.md)
 
-### Clasification
+### [Clasification](./clasification.md)
 
 ## Data
 
