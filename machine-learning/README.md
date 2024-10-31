@@ -14,7 +14,7 @@
 
 ### [Working with numerical data](./numerical_data.md)
 
-### Working with categorical data
+### [Working with categorical data](./categorical_data.md)
 
 ### Datasets, Generalization and Overfitting
 
