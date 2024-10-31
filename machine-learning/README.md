@@ -12,7 +12,7 @@
 
 ## Data
 
-### Working with numerical data
+### [Working with numerical data](./numerical_data.md)
 
 ### Working with categorical data
 
