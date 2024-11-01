@@ -16,7 +16,7 @@
 
 ### [Working with categorical data](./categorical_data.md)
 
-### Datasets, Generalization and Overfitting
+### [Datasets, Generalization and Overfitting](./datasets.md)
 
 ## Advanced ML models
 
