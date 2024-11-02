@@ -24,7 +24,7 @@
 
 ### [Embeddings](./embeddings.md)
 
-### Large language models
+### [Large language models](./llm.md)
 
 ## Real-world ML
 
