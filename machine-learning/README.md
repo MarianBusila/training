@@ -30,6 +30,6 @@
 
 ### [Production ML Systems](./production_ml.md)
 
-### AutoML
+### [AutoML](./automl.md)
 
 ### ML Fairness
