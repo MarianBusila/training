@@ -20,9 +20,9 @@
 
 ## Advanced ML models
 
-### Neural networks
+### [Neural networks](./neural_networks.md)
 
-### Embeddings
+### [Embeddings](./embeddings.md)
 
 ### Large language models
 
