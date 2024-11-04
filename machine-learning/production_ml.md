@@ -33,3 +33,36 @@ Questions to ask about a model:
 - Is each feature helpful?
 - Is your data source reliable?
 - Is your model part of a feedback loop? Sometimes a model can affect its own training data. For example, the results from some models, in turn, become (directly or indirectly) input features to that same model.
+
+## MLOps Platforms
+
+![](images/production_ml/mlops_stack.png)
+
+### Open Source (Build your own)
+![](images/production_ml/mlops_opensource.png)
+
+
+- Data Management and Feature Engineering:Feast, Hopsworks
+- Experiment Tracking and Model Versioning: MLflow, DVC
+- Model Deployment and Serving: Seldon Core, BentoML
+- Model Monitoring: evidently.ai, Prometheus + Grafana
+- Machine Learning Workflow Orchestration: Kubeflow
+
+### Managed
+
+#### AWS SageMaker
+
+![](images/production_ml/sage_maker.png)
+
+#### Databricks
+
+![](images/production_ml/databricks.png)
+
+
+
+## References
+
+- [5 Best Open Source Tools to Build End-to-End MLOps Pipeline in 2024](https://www.qwak.com/post/mlops-pipeline-with-open-source-tools)
+- [Open Source MLOps: Platforms, Frameworks and Tools](https://neptune.ai/blog/best-open-source-mlops-tools)
+- [Managed MLOps Platforms](https://www.qwak.com/post/top-mlops-end-to-end)
+- [End-to-End Machine Learning Project – AI, MLOp](https://www.youtube.com/watch?v=o6vbe5G7xNo)
