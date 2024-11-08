@@ -34,6 +34,14 @@
 
 ### ML Fairness
 
+## Setup for Jupyter Notebooks
+
+```
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
 ## References
 
 - [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)

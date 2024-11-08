@@ -16,7 +16,8 @@
 ## Unsupervised learning
 
 - unsupervised learning models make predictions by being given data that does not contain any correct answers. An unsupervised learning model's goal is to identify meaningful patterns among the data.
--  unsupervised learning model employs a technique called __clustering__. Clustering differs from classification because the categories aren't defined by you. 
+-  unsupervised learning model employs a technique called __clustering__ (example: clustering images of cats and dogs). Clustering differs from classification because the categories aren't defined by you. 
+- other algorithms for unsupervised learning are __association__ (example: you buy shampoo and get a recommandation for conditioner) and __anomaly detections__(example: a credit card is being used in 2 different cities in a matter of minutes).
 
 ## Reinforcement learning
 
