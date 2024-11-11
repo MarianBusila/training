@@ -1,5 +1,13 @@
 # Machine Learning Introduction
 
+## Rule-based vs Machine learning
+
+Rule-based solutions should be used if:
+- problem statement is fairly simple
+- rules are simple and can be codified
+- rules do not change frequently
+- few or no training data set
+
 ## Supervised learning
 
  - models can make predictions after seeing lots of data with the correct answers and then discovering the connections between the elements in the data that produce the correct answers
@@ -17,7 +25,7 @@
 
 - unsupervised learning models make predictions by being given data that does not contain any correct answers. An unsupervised learning model's goal is to identify meaningful patterns among the data.
 -  unsupervised learning model employs a technique called __clustering__ (example: clustering images of cats and dogs). Clustering differs from classification because the categories aren't defined by you. 
-- other algorithms for unsupervised learning are __association__ (example: you buy shampoo and get a recommandation for conditioner) and __anomaly detections__(example: a credit card is being used in 2 different cities in a matter of minutes).
+- other algorithms for unsupervised learning are __association__ (example: you buy shampoo and get a recommandation for conditioner) and __anomaly detections__(example: a credit card is being used in 2 different cities in a matter of minutes). __Dimensionality reduction__ is used to find latent or significant features in your data. Is generally used as a preprocess step.
 
 ## Reinforcement learning
 
@@ -27,3 +35,30 @@
 
 - generative AI is a class of models that creates content from user input. For example, generative AI can create unique images, music compositions, and jokes; it can summarize articles, explain how to perform a task, or edit a photo.
 -  generative models learn patterns in data with the goal to produce new but similar data
+
+## Solution categories
+
+|Use case|Problem|
+|--------|-------|
+|Image data                        |Convolutional Neural Networks|
+|Complex textual data              |Recurrent Neural Networks|
+|Sequential or time series data    |Recurrent Neural Networks|
+|Linear x-variables                |Linear and logistic regression, PCA|
+|Twisted data(S-curves, Swiss Rols)|Manifold learning|
+|Large numbers of x-variables      |Decision trees|
+
+## Machine learning frameworks
+- scikit-learn - easy to use for regression, classification, clustering
+- XGBoost for boosting scikit-learn
+- pytorch  - high level abstraction for deep neural networks
+- tensorflow - end to end soluton for deep neural networks
+- keras - hight level neural networks api running on top of tensorflow
+
+## ML Cheatsheets
+
+![](images/overview/cheatsheet1.png) 
+![](images/overview/cheatsheet2.png) 
+![](images/overview/cheatsheet3.png) 
+![](images/overview/scikit_learn_cheatsheet2.png) 
+![](images/overview/scikit_learn_cheatsheet.png) 
+

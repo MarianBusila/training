@@ -11,7 +11,18 @@ In practice, any mathematical function can serve as an activation function. $\si
 
 ![](images/neural_networks/neural_network.png)
 
-__Backpropagation__ is the most common training algorithm for neural networks. It makes gradient descent feasible for multi-layer neural networks.
+__Backpropagation__ is the most common training algorithm for neural networks. It makes gradient descent feasible for multi-layer neural networks. It tries to figure out how all weights and biases from all neurons should be modified to get to the minimum of the loss function.
+![](images/neural_networks/backpropagation2.png)
+
+Note that certain weights have a greater influence on the cost function result, because they are multiplied with activation values which are higher
+![](images/neural_networks/backpropagation3.png)
+
+The step above has to be done for all the neurons.
+![](images/neural_networks/backpropagation4.png)
+![](images/neural_networks/backpropagation5.png)
+
+Calculating this __gradient descent__ for each input is expensive. Generally training dataset is split into minibatches and the calculation is done for each minibatch, eventually getting to that minimum.
+![](images/neural_networks/backpropagation.png)
 
 ## Vanishing Gradients
 

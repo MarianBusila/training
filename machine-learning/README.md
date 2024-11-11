@@ -45,3 +45,4 @@ pip install -r requirements.txt
 ## References
 
 - [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
+- [3Blue1Brown - Neural Networks](https://www.youtube.com/watch?v=aircAruvnKk&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=2)

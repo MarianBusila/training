@@ -44,3 +44,28 @@ Other important LLM techniques:
 - __fine-tunning__: use a base LLM and train it with some task specific dataset. Fine-tunning does not change the number of parameters of the model
 - __distilation__: creates a smaller version of an LLM, but the new model will not perform as well as the original model
 - __prompt engineering__: enables an LLM's end users to customize the model's output. Showing one example to an LLM is called __one-shot prompting__. 
+
+## Inside GPT 3
+
+There are a few steps involved in GPT architecture
+![](images/llm/gpt_overview.png)
+
+Every word / token is converted into a vector(~ 12k dimensions). There are ~ 50K tokens used in GPT-3. The __context__ size is 2048 tokens.
+
+Tokens that relate to one another tend to be close in that multi dimensional space. Some directions in this space can be interpreted as a __meaning__. Ex, there seems to be a direction around gender:
+![](images/llm/gpt_embeddings_gender.png)
+
+![](images/llm/gpt_embeddings.png)
+
+After that, these vectors travel through an __attention layer__, where the values from each vector can influence each other depending on context. Some words relate to one another more than others.
+
+Next step is a __multilayer perceptron__ that executes changes in parallel for each embedding. They seem to address very specific questions: "Is it a noun?", "Is it a lie?".
+![](images/llm/gpt_mlp.png)
+
+There are multiple attention blocks and mlp blocks.
+
+In the end, only the last vector, will be interpreted as the next potential word. Depending on the __temperature__ setting, the word with the highest probability is chosen or not.
+![](images/llm/gpt_laststep.png)
+
+GPT-3 has ~ 175 billion parameters that are actuall wights and biases from all the layers presented above.
+
