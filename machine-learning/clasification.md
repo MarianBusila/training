@@ -1,7 +1,34 @@
 # Classification
 
+
+
 __Classification__ is the task of predicting which of a set of classes (categories) an example belongs to. This can be done by converting a logistic regression model that predicts a probability into a binary classification model that predicts one of two classes.
 Note that a balanced dataset is important.
+
+## Algorithms
+- Logistic Regression
+- Support Vector Machines
+- Nearest Neighbors (K nearest or Radius nearest)
+- Decision Trees
+- Naive Bayes
+- Random Forest (an ensemble of decision trees in which individual trees are trained on different random subsets of training data)
+
+__Logistic regression__ is similar to linear regression, but instead of fitting a line, it tries to fit a S-curve.
+![](images/classification/logistic_regression.png)
+
+__Support Vector Machines__ uses N-dimensional data represented in a __hypercube__ that is cassified using a __hyperplane__
+![](images/classification/svm.png)
+
+__Nearest Neighbors__ would look at the k nearest neighbours / radius neighbours to decide if a sample belongs to that category or not
+![](images/classification/k_nearest.png)
+
+__Decision Trees__ try to fit knowledge into rules. The most important nodes appear at the top of the tree
+![](images/classification/decision_tree.png)
+
+__Naive Bayes__ algorithm is based on:
+- __a priori probabilities__, before anything specific is known. Ex: you need to decide if a person running is a runner or police officer. You know a priori that today there is a marathon. P(Runner) = 9/10, P(Officer) = 1/10
+- __conditional probabilities__. Ex: certain items like handcuffs, gun, walkie-talkie are more likely to be observed on a police officer.
+
 
 ## Thresholds and the confusion matrix
 
