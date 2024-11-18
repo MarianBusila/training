@@ -24,6 +24,8 @@
 
 ### [Neural networks](./neural_networks.md)
 
+### [Deep learning](./deep_learning.md)
+
 ### [Embeddings](./embeddings.md)
 
 ### [Large language models](./llm.md)
@@ -36,7 +38,7 @@
 
 ### ML Fairness
 
-## Setup for Jupyter Notebooks
+## Setup for Jupyter Notebooks / Pytorch
 
 ```
 python -m venv venv
