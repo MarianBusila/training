@@ -10,6 +10,8 @@
 
 ### [Clasification](./clasification.md)
 
+### [Clustering](./clustering.md)
+
 ## Data
 
 ### [Working with numerical data](./numerical_data.md)
