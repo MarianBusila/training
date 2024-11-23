@@ -1,3 +1,7 @@
+## Overview
+
+Based on [Deep Learning With PyTorch - Full Course](https://www.youtube.com/watch?v=c36lUUr864M)
+
 ## Pytorch installation
 
 - go to [Pytorch website](https://pytorch.org/) and select the combo specific to your system. Update the __requirements.txt__ file with the selected versions
